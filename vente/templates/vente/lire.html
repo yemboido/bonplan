@@ -1,0 +1,25 @@
+{% extends 'vente/base.html' %}
+{% block content %}
+
+<dl class="dl-horizontal">
+	<dt>publié:</dt>
+	<dd>{{posts.date_publication}}</dd>
+	
+	<dt>descriptions:</dt>
+	<dd>{{posts.descriptions}}</dd>
+	
+	
+	<dt>Prix:</dt>
+	<dd>{{posts.prix}}</dd>
+	
+	
+	<dt>Numeros:</dt>
+	<dd>{{posts.Numeros}}</dd>
+</dl>
+
+<img class="img" src="{{ MEDIA_URL }}{{ posts.photo1 }}" alt="photo1"/>
+<img class="img" src="{{ MEDIA_URL }}{{ posts.photo2 }}" alt="photo2"/>
+<img class="img" src="{{ MEDIA_URL }}{{ posts.photo3 }}" alt="photo3"/>
+<img class="img" src="{{ MEDIA_URL }}{{ posts.photo4 }}" alt="photo4"/>
+
+{%endblock%}

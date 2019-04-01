@@ -1,0 +1,11 @@
+{% extends 'vente/base.html' %}
+{% block content %}
+<form method="POST" action="{%url "demande" %}" enctype="multipart/form-data">
+<div class="formulaire_demande">
+{% csrf_token %}
+
+{{ form.as_p}}
+<button name="conect"type="submit">Soumettre</button>
+</div>
+</form>
+{% endblock %}

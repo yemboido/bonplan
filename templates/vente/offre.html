@@ -1,0 +1,73 @@
+{% extends 'vente/base.html' %}
+
+{% block content %}
+    <br>
+    <form class="form-horizontal" action="{%url "offre" %}"" enctype="multipart/form-data" method="POST" class="post-form">
+      {% csrf_token %}
+	   
+		<!-- {{form.as_p}} -->
+		<div class="row">
+		
+     <label for="id_localite" class="col-lg-2">Localite:</label>
+	 <div class="col-lg-6">
+	 <input class="form-control" type="text" name="localite" maxlength="100" required id="id_localite">
+		</div>
+	</div></br>
+	
+	 <div class="row">
+	
+	<label for="id_categories" class="col-lg-2">Categories:</label> 
+	<div class="col-lg-6">
+	<input class="form-control" type="text" name="categories" maxlength="30" required id="id_categories">
+	</div>
+	</div></br>
+	
+<div class="row">
+	
+	<label for="id_type" class="col-lg-2" >Type:</label>
+	<div class="col-lg-6">
+	<select class="form-control" name="type" required id="id_type">
+		<option value="" selected>---------</option>
+
+		<option value="1">offre</option>
+
+		<option value="2">demande</option>
+
+	</select>
+	</div>
+	</div></br>
+	
+<div class="row">
+	
+	<label for="id_descriptions" class="col-lg-2" >Descriptions:</label>
+	<div class="col-lg-6">
+	<textarea class="form-control" name="descriptions" cols="40" rows="10" required id="id_descriptions"> </textarea>
+	</div>
+	</div></br>
+	
+<div class="row">
+	
+	<label for="id_prix" class="col-lg-2">Prix:</label> 
+	<div class="input-group col-lg-6">
+	<input class="form-control" type="text" name="prix" maxlength="10" style="text-align:right" required id="id_prix"></p>
+	<span class="input-group-addon">FCFA</span>
+	</div>
+	</div></br>
+	
+<div class="row">
+	
+	<label for="id_Numeros" class="col-lg-2" >Numeros:</label>
+	<div class="col-lg-6">
+	<input class="form-control" type="text" name="Numeros" maxlength="10" required id="id_Numeros"></p>
+	</div>
+	</div></br>
+	
+<p><label for="id_photo1">Photo1:</label> <input type="file" name="photo1" accept="image/*" required id="id_photo1"></p>
+<p><label for="id_photo2">Photo2:</label> <input type="file" name="photo2" accept="image/*"  id="id_photo2"></p>
+<p><label for="id_photo3">Photo3:</label> <input type="file" name="photo3" accept="image/*"  id="id_photo3"></p>
+<p><label for="id_photo4">Photo4:</label> <input type="file" name="photo4" accept="image/*"  id="id_photo4"></p>
+		<button class="btn btn-primary" type="submit" class="button is primary"><span class="glyphicon glyphicon-ok-sign"></span>Envoyer</button>
+		
+    </form>
+	
+{% endblock %}
