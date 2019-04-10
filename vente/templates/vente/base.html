@@ -14,10 +14,14 @@
 	 <ul >
 		<li><a href="{% url "articles"%}"">Bonplan</a></li>
 		<li><a href="{% url "offre"%}"">Deposez Annonce</a></li>
-		<!-- <li><a href="">Contact</a></li>
-		<li ><a href="{% url "Connexion"%}"">
-      {% if user.is_authenticated %} {{ user.username }}
-      {% else %}Connexion {%endif%}</a></li> -->
+		<!-- <li><a href="">Contact</a></li> -->
+		<li style="float:right">
+				{% if user.is_authenticated %} 
+					<a href="{% url "profil"%}"">{{ user.username }}</a>
+				{% else %}
+					<a  href="{% url "connexion"%}""> Connexion</a> 
+				{%endif%}	
+		</li> 
 	</ul>
 	{%endblock%}
 	</nav>
@@ -26,7 +30,9 @@
       {%block content%}
       {%endblock%}
     </section>
-    
+    <footer class="footer">
+		@bonplan
+	<footer>
 
 </body>
 </div>

@@ -1,20 +1,40 @@
 {% extends 'vente/base.html' %}
 {% block content %}
-<h1>Se connecter</h1>
-<a href="{% url "inscription"%}">S'incrire</a>
+
 {% if error %}
 <p><strong>Utilisateur inexistant ou mauvais de mot de passe.</strong></p>
 {% endif %}
 {% if user.is_authenticated %}
 Vous êtes connecté, {{ user.username }} !
 Ce deconnecter<a href="{%url "deconnexion"%}">ici</a>
+
+
+
 {% else %}
-<form method="post" action=".">
-{% csrf_token %}
-<div class="conteneur">
-{{ form.as_p}}
-<button name="conect"type="submit">Login</button>
+<h1>Se connecter</h1>
+
+<form class="form-horizontal" class="col-lg-10" method="post" action="{%url "connexion" %}">
+	{% csrf_token %}
+	<div class="conteneur">
+	<div class="row">
+		<label for="id_username"class="col-lg-2" >Nom d'utilisateur:</label>
+		<div class="col-lg-4">
+			<input class="form-control" type="text" name="username"  maxlength="30" required="" id="id_username">
+		</div>
+	</div></br>
+
+	<div class="row">
+		<label for="id_password" class="col-lg-2">Mot de passe:</label>
+		<div class="col-lg-4">
+			<input class="form-control" type="password" name="password" required="" id="id_password">
+		</div>
+	</div></br>
+
+
+<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>Se connecter</button>
 </div>
 </form>
+<p> pas de comptes pas grave <a href="{% url "inscription"%}"">S'incrire</a> </p>
 {% endif %}
+
 {% endblock %}

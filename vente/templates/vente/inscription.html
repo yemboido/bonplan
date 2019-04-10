@@ -3,8 +3,45 @@
 <h1>S'inscrire</h1>
 <form method="post" action=".">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="row">
+	<label for="id_username" class="col-lg-2">Pseudo:</label>
+	<div class="col-lg-6">
+	<input class="form-control" type="text" name="username" maxlength="30" required id="id_username">
+	</div>
+	</div></br>
 
-    <input type="submit" value="S'inscrire"/>
+
+	<div class="row">
+	<label for="id_first_name" class="col-lg-2" >Nom:</label>
+	<div class="col-lg-6">
+	<input class="form-control" type="text" name="first_name" maxlength="30" required id="id_first_name">
+	</div>
+	</div></br>
+
+
+	<div class="row">
+	<label for="id_last_name" class="col-lg-2" >Prenom:</label>
+	<div class="col-lg-6">
+	<input class="form-control" type="text" name="last_name" required id="id_last_name">
+	</div>
+	</div></br>
+
+
+	<div class="row">
+	<label for="id_email"class="col-lg-2">Address Email :</label>
+	<div class="col-lg-6">
+	<input class="form-control" type="text" name="email" required id="id_email">
+	</div>
+	</div></br>
+
+
+	<div class="row">
+	<label for="id_password" class="col-lg-2">Mots de passe:</label>
+	<div class="col-lg-6">
+	<input class="form-control" type="password" name="password" required id="id_password">
+	</div>
+	</div></br>
+
+    <button class="btn btn-primary" type="submit" class="button is primary"><span class="glyphicon glyphicon-ok-sign"></span>Envoyer</button>
 </form>
 {%endblock %}

@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-
+from django.contrib.auth.decorators import login_required
 
 def lire(request, id):
     posts = get_object_or_404(article, id=id)
@@ -18,7 +18,7 @@ def articles(request):
     posts=article.objects.order_by('-date_publication')
     return render(request,'vente/index.html', {'posts': posts})
 
-
+@login_required()
 def Offre(request):
     if request.method == "POST":
         form = PostForm(request.POST,request.FILES)
@@ -32,7 +32,8 @@ def Offre(request):
 
 def deconnexion(request):
     logout(request)
-    return redirect(reverse(connexion))
+    return render(request,'vente/index.html')
+
 
 def connexion(request):
     error = False
@@ -67,18 +68,5 @@ def inscription(request):
         form=formulaire_inscription()
     return render(request, "vente/inscription.html",locals() )
 
-def Demande(request):
-    if request.method == "POST":
-        form = formulaire_demande(request.POST)
-        if form.is_valid():
-            demande= form.save(commit=False)
-            demande.save()
-            return redirect('articles')
-
-    else:
-        form = formulaire_demande()
-    return render(request, 'vente/demande.html', {'form': form})
-
-def demande_objet(request):
-    posts=demande.objects.order_by('-date_publication')
-    return render(request,'vente/demande_objets.html', {'posts': posts})
+def profil(request):
+    return render(request,'vente/profil.html')

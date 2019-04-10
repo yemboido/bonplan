@@ -2,9 +2,9 @@
 
  header
 {
-	 background-color: #333;
+	  background-color: #333;
 	overflow: hidden;
-	padding: 20px 10px;
+	padding: 10px 10px;
 	color:white;
 }
 nav ul {
@@ -32,3 +32,14 @@ li a:hover {
     background-color: #4CAF50;
 }
 
+/*.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: green;
+  color: white;
+  text-align: center;
+  padding-right: 15px;
+padding-left: 15px;
+}*/
